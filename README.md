@@ -1,4 +1,4 @@
-# Weekend-Getaway-FE
+# Weekend-Getaway
 
 ## Date: 12/07/2022
 
