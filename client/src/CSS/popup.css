@@ -1,0 +1,84 @@
+body.active-popUp {
+  overflow-y:hidden;
+}
+
+.btn-popUp {
+  padding: 10px;
+  font-size: 10px;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-color: #c44c21;
+  color:#d4c4b2;
+  border: none;
+  border-radius: 25px;
+}
+
+.popUp, .overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1;
+}
+
+.overlay {
+  background: rgba(49,49,49,0.8);
+
+}
+
+.popUp-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  padding: 44px 88px;
+  border-radius: 3px;
+  width: 600px;
+  max-height: 80vh;
+  background-color: #c3a588;
+  overflow: auto;
+  z-index: 2;
+}
+
+.close-popUp {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+  background-color: #c44c21;
+  color:#d4c4b2;
+  border: none;
+  border-radius: 25px;
+}
+
+
+.input {
+  background-color: #d4c4b2; 
+  border-radius: 25px;
+  height: 30px;
+  opacity: .8;
+  border: none;
+  width: 50vw;
+}
+
+
+.submit {
+  background-color: #c44c21;
+  color:#d4c4b2;
+  border: none;
+  border-radius: 25px;
+  height: 30px;
+}
+
+form {
+  display: flex;
+  
+}

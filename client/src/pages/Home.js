@@ -9,7 +9,12 @@ let navigate = useNavigate()
     
     <div>
       {authorized ? (
-        <MainNav setUser={setUser}/>
+        <div>
+          <MainNav setUser={setUser}/>
+          <div>
+            
+          </div>
+        </div>
       ) : (
         <div>
           <h1>Your not authorized!</h1>

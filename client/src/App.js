@@ -31,8 +31,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Login setUser={setUser} />} />
         <Route path='/home' element={<Home setUser={setUser} authorized={authorized}/>} />
-        <Route path='/trips' element={<Trip />} />
-        <Route path='/search' element={<Search />} />
+        <Route path='/trips' element={<Trip setUser={setUser} authorized={authorized}
+        userId={userId} />} />
+        <Route path='/search' element={<Search setUser={setUser} authorized={authorized}/>} />
       </Routes>
       
     </div>
