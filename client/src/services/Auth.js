@@ -1,5 +1,5 @@
-import Client from './Api'
 
+import Client from './Api'
 export const SignInUser = async (data) => {
   try {
     const res = await Client.post('auth/login', data)
@@ -51,4 +51,14 @@ export const createPost = async (formState) => {
   try {
     await Client.post(`/trips/create`, formState)
   } catch (error) {}
+}
+
+
+export const deleteTrip = async (tripId) => {
+  try {
+    await Client.delete(`/trips/${tripId}`)
+
+  } catch (error) {
+    throw error
+  }
 }

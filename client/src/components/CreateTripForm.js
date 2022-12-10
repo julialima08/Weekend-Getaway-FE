@@ -18,6 +18,7 @@ const CreateTripForm = (props) => {
     await props.createTrip(e)
     togglePopUp()
     props.setNewTrip(props.initialState)
+    props.getUserTrips()
   }
 
   const newTrip = props.newTrip
