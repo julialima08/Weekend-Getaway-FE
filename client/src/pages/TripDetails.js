@@ -1,16 +1,25 @@
 // import axios from "axios"
-import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
-import MainNav from "../components/MainNav" 
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import MainNav from '../components/MainNav'
 // import { BASE_URL } from "../globals"
-import { deleteTrip } from "../services/Auth"
-import UpdateTripForm from "../components/UpdateTripForm"
+import { deleteTrip } from '../services/Auth'
+import UpdateTripForm from '../components/UpdateTripForm'
+import FlightCard from '../components/FlightCard'
+import axios from 'axios'
+import { BASE_URL } from '../globals'
 
-const TripDetails = ({authorized, setUser, selectedTrip, setTripDeleted, setTripUpdated, tripUpdated} ) => {
-
+const TripDetails = ({
+  authorized,
+  setUser,
+  selectedTrip,
+  setTripDeleted,
+  setTripUpdated,
+  tripUpdated
+}) => {
   let navigate = useNavigate()
   const [buttonClicked, setButtonClicked] = useState(false)
-  
+
   const deleteClick = async (id) => {
     await deleteTrip(id)
     setTripDeleted(true)
@@ -21,41 +30,63 @@ const TripDetails = ({authorized, setUser, selectedTrip, setTripDeleted, setTrip
     setButtonClicked(!buttonClicked)
   }
 
+  const removeFlight = async (id) => {
+    let flight = {...selectedTrip.Flights, index: selectedTrip.Flights.index}
+    await axios.put(`${BASE_URL}/trips/remove/${selectedTrip.id}`)
+  }
 
-
-
+  // let flightsArr = selectedTrip.Flights
   return (
     <div>
       {authorized ? (
         <div>
-          <MainNav setUser={setUser}/>
+          <MainNav setUser={setUser} />
           <div>
-          <h1>Trip details</h1>
-          {selectedTrip ? (
-            <div>
-              <button onClick={()=>deleteClick(selectedTrip.id)}>Delete Trip</button>
-              <button onClick={()=>updatedTrip(selectedTrip.id)}>Edit Trip</button>
-              {buttonClicked ? (
+            <h1>Trip details</h1>
+            {selectedTrip ? (
               <div>
-                <UpdateTripForm setButtonClicked={setButtonClicked} buttonClicked={buttonClicked} setTripUpdated={setTripUpdated} selectedTrip={selectedTrip}/>
+                <button onClick={() => deleteClick(selectedTrip.id)}>
+                  Delete Trip
+                </button>
+                <button onClick={() => updatedTrip(selectedTrip.id)}>
+                  Edit Trip
+                </button>
+                {buttonClicked ? (
+                  <div>
+                    <UpdateTripForm
+                      setButtonClicked={setButtonClicked}
+                      buttonClicked={buttonClicked}
+                      setTripUpdated={setTripUpdated}
+                      selectedTrip={selectedTrip}
+                    />
+                  </div>
+                ) : (
+                  <div>
+                    <h2>{selectedTrip.title}</h2>
+                    <h2>{selectedTrip.destination}</h2>
+                    <h2>{selectedTrip.date}</h2>
+                    <div>
+                      {selectedTrip.Flights.map((flight)=> (
+                      <FlightCard
+                      airline={flight.airline}
+                      price={flight.price}
+                      departure={flight.departure}
+                      onClick={()=>removeFlight(flight.id)}
+                      />
+                    ))}
+                    </div>
+                  </div>
+                )}
               </div>
-              ) : (
-              <div>
-                <h2>{selectedTrip.title}</h2>
-                <h2>{selectedTrip.destination}</h2>
-                <h2>{selectedTrip.date}</h2>
-              </div>
-              )}
-            </div>
-          ): null}
-          <button onClick={()=>navigate('/trips')}>back</button>
+            ) : null}
+            <button onClick={() => navigate('/trips')}>back</button>
           </div>
         </div>
       ) : (
         <div>
           <h1>Your not authorized!</h1>
           <h2>Please login or create an account first</h2>
-          <button onClick={()=> navigate('/')}>Back</button>
+          <button onClick={() => navigate('/')}>Back</button>
         </div>
       )}
     </div>

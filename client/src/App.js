@@ -47,6 +47,7 @@ function App() {
     navigate(`/trip/${id}`)
       const res = await axios.get(`${BASE_URL}/trips/${id}`)
       setSelectedTrip(res.data)
+      console.log(res.data)
   }
 
   return (
