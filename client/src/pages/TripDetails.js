@@ -1,18 +1,28 @@
-import axios from "axios"
-import { useEffect } from "react"
+// import axios from "axios"
+import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import MainNav from "../components/MainNav" 
-import { BASE_URL } from "../globals"
+// import { BASE_URL } from "../globals"
 import { deleteTrip } from "../services/Auth"
+import UpdateTripForm from "../components/UpdateTripForm"
 
-const TripDetails = ({authorized, setUser, selectedTrip, getUserTrips} ) => {
+const TripDetails = ({authorized, setUser, selectedTrip, setTripDeleted, setTripUpdated, tripUpdated} ) => {
+
   let navigate = useNavigate()
+  const [buttonClicked, setButtonClicked] = useState(false)
   
   const deleteClick = async (id) => {
-    deleteTrip(id)
+    await deleteTrip(id)
+    setTripDeleted(true)
     navigate('/trips')
-    getUserTrips()
   }
+
+  const updatedTrip = () => {
+    setButtonClicked(!buttonClicked)
+  }
+
+
+
 
   return (
     <div>
@@ -24,9 +34,18 @@ const TripDetails = ({authorized, setUser, selectedTrip, getUserTrips} ) => {
           {selectedTrip ? (
             <div>
               <button onClick={()=>deleteClick(selectedTrip.id)}>Delete Trip</button>
-            <h2>{selectedTrip.title}</h2>
-            <h2>{selectedTrip.destination}</h2>
-            <h2>{selectedTrip.date}</h2>
+              <button onClick={()=>updatedTrip(selectedTrip.id)}>Edit Trip</button>
+              {buttonClicked ? (
+              <div>
+                <UpdateTripForm setButtonClicked={setButtonClicked} buttonClicked={buttonClicked} setTripUpdated={setTripUpdated} selectedTrip={selectedTrip}/>
+              </div>
+              ) : (
+              <div>
+                <h2>{selectedTrip.title}</h2>
+                <h2>{selectedTrip.destination}</h2>
+                <h2>{selectedTrip.date}</h2>
+              </div>
+              )}
             </div>
           ): null}
           <button onClick={()=>navigate('/trips')}>back</button>

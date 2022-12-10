@@ -57,7 +57,14 @@ export const createPost = async (formState) => {
 export const deleteTrip = async (tripId) => {
   try {
     await Client.delete(`/trips/${tripId}`)
+  } catch (error) {
+    throw error
+  }
+}
 
+export const updateTrip = async (tripId) => {
+  try {
+    await Client.put(`/trips/${tripId}`)
   } catch (error) {
     throw error
   }

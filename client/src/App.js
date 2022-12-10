@@ -40,6 +40,8 @@ function App() {
   let userId = localStorage.getItem('id')
 
   const [selectedTrip, setSelectedTrip] = useState(null)
+  const [tripDeleted, setTripDeleted] = useState(false)
+  const [tripUpdated, setTripUpdated] = useState(false)
 
   const viewTripDetails = async (id) => {
     navigate(`/trip/${id}`)
@@ -52,9 +54,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Login setUser={setUser} />} />
         <Route path='/home' element={<Home setUser={setUser} authorized={authorized}/>} />
-        <Route path='/trips' element={<Trip viewTripDetails={viewTripDetails} getUserTrips={getUserTrips} trips={trips} setUser={setUser} authorized={authorized}
+        <Route path='/trips' element={<Trip tripDeleted={tripDeleted} viewTripDetails={viewTripDetails} getUserTrips={getUserTrips} trips={trips} setUser={setUser} authorized={authorized}
         userId={userId} />} />
-        <Route path='/trip/:id' element={<TripDetails getUserTrips={getUserTrips} selectedTrip={selectedTrip} setUser={setUser} authorized={authorized}/>} />
+        <Route path='/trip/:id' element={<TripDetails tripUpdated={tripUpdated} setTripUpdated={setTripUpdated} setTripDeleted={setTripDeleted} getUserTrips={getUserTrips} selectedTrip={selectedTrip} setUser={setUser} authorized={authorized}/>} />
         <Route path='/search' element={<Search setUser={setUser} authorized={authorized}/>} />
       </Routes>
       
