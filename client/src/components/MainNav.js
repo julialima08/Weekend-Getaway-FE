@@ -10,14 +10,14 @@ const MainNav = ({ setUser }) => {
   }
 
 return (
-  <div>
-    <div className="nav-buttons">
-      <button onClick={()=> navigate('/home')}>Home</button>
-      <button onClick={()=> navigate('/trips')}>My Trips</button>
-      <button onClick={()=> navigate('/search')}>Search</button>
+  <div className="nav">
+    <div >
+      <button className="nav-buttons" onClick={()=> navigate('/home')}>Home</button>
+      <button className="nav-buttons" onClick={()=> navigate('/trips')}>My Trips</button>
+      <button className="nav-buttons" onClick={()=> navigate('/search')}>Search</button>
     </div>
-    <div className="logout-button">
-      <button onClick={logOutUser}>Logout</button>
+    <div>
+      <button className="nav-buttons" onClick={logOutUser}>Logout</button>
     </div>
   </div>
 )
