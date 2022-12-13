@@ -1,6 +1,7 @@
 import RegisterForm from "../components/RegisterForm"
 import { useState } from 'react'
 import LoginForm from '../components/LoginForm'
+import '../CSS/Login.css'
 
 const Login = ({ setUser }) => {
   const [isVisible, setIsVisible] = useState(true)
@@ -13,13 +14,13 @@ const Login = ({ setUser }) => {
   }
 
 return (
-  <div>
+  <div className="login">
     <h1>Weekend Getaway</h1>
               {isVisible ? (
             <div className="login-form">
               <LoginForm setUser={setUser} />
               <div className="createHeaderDiv">
-                <h3 className="createHeader1">Don't have an account?</h3>
+                <h3 className="createHeader2">Don't have an account?</h3>
               </div>
               <button onClick={handleLoginClick} className="homeButton">
                 Create Account
@@ -28,7 +29,7 @@ return (
           ) : (
             <div className="register-form">
               <RegisterForm setIsVisible={setIsVisible} />
-              <h3 className="createHeader3">have an account already?</h3>
+              <h3 className="createHeader">have an account already?</h3>
               <button onClick={handleCreateClick} className="homeButton">
                 Login
               </button>

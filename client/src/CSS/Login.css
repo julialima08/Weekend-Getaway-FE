@@ -1,0 +1,89 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #d2d7df;
+}
+
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  height: 45%;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #011638;
+  color: #FFFFFF;
+  box-shadow: 0 0 1rem #388697;
+}
+
+.homeButton {
+  padding: 0.5rem 1rem;
+  margin-top: 5px;
+  border-radius: 1rem;
+  background-color: #cd4b13;
+  color: #FFFFFF;
+  box-shadow: 0 0 0.5rem #d2d7df;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 130px;
+}
+
+.homeButton:hover {
+  background-color: #FFFFFF;
+  color: #cd4b13;
+  box-shadow: 0 0 0.5rem #cd4b13;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60vw;
+  padding: 2rem;
+  background-color: #011638; 
+   color: #FFFFFF;
+  box-shadow: 0 0 1rem #388697;
+  border-radius: 10px;
+}
+
+.login-input {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: #d2d7df;
+  color: #011638;
+  box-shadow: 0 0 0.5rem #388697;
+  width: 80%;
+}
+
+.button2 {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: #cd4b13;
+  color: #FFFFFF;
+  box-shadow: 0 0 0.5rem #d2d7df;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button2:hover {
+  background-color: #FFFFFF;
+  color: #cd4b13;
+  box-shadow: 0 0 0.5rem #cd4b13;
+}
+
+.createHeader {
+  margin-top: 4rem;
+}
+
+.createHeader2 {
+  margin-top: 10.3rem;
+} 

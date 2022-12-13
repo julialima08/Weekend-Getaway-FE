@@ -2,21 +2,11 @@ import React, { useState } from 'react';
 import '../CSS/Search.css';
 
 const SearchFlights = (props) => {
-  // const [destination, setDestination] = useState('');
-  // const [date, setDate] = useState('');
-  // const [origin, setOrigin] = useState('');
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   searchFlights(destination, date, origin);
-  // }
-
-
 
 
   return (
     <div className="search-engine">
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={(event)=>  props.handleSubmit(event).then((event)=>  props.getSearchResults(event))}>
       <label>
         Origin:
         <input

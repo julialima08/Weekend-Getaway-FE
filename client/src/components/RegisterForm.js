@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { RegisterUser } from '../services/Auth'
+import '../CSS/Login.css'
 
 const RegisterForm = ({ setIsVisible }) => {
   let initialState = {
@@ -32,28 +33,28 @@ return (
       onChange={handleChange}
       value={newUser.name}
       name="name"
-      className="input"
+      className="login-input"
     />
     <input
       placeholder="Email"
       onChange={handleChange}
       value={newUser.email}
       name="email"
-      className="input"
+      className="login-input"
     />
     <input
       placeholder="Password"
       onChange={handleChange}
       value={newUser.password}
       name="password"
-      className="input"
+      className="login-input"
     />
     <input
       placeholder="Confirm Password"
       onChange={handleChange}
       value={newUser.confirmPassword}
       name="confirmPassword"
-      className="input"
+      className="login-input"
     />
     <button
       disabled={

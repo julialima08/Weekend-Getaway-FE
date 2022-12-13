@@ -50,6 +50,59 @@ function App() {
       console.log(res.data)
   }
 
+  const [destination, setDestination] = useState('');
+  const [date, setDate] = useState('');
+  const [origin, setOrigin] = useState('');
+  const [sid, setSid] = useState('')
+  const API_KEY= process.env.REACT_API_KEY
+  const API_HOST = process.env.REACT_API_HOST
+
+  const options = {
+    method: 'GET',
+    url: 'https://travel-advisor.p.rapidapi.com/flights/create-session',
+    params: {
+      o1: `${origin}`,
+      d1: `${destination}`,
+      dd1: `${date}`,
+      currency: 'USD',
+      ta: '1'
+    },
+    headers: {
+      'X-RapidAPI-Key': `${API_KEY}`,
+      'X-RapidAPI-Host': `${API_HOST}`
+    }
+  };
+
+  const options2 = {
+    method: 'GET',
+    url: 'https://travel-advisor.p.rapidapi.com/flights/poll',
+    params: {sid: `${sid}`, so: 'PRICE', currency: 'USD'},
+    headers: {
+      'X-RapidAPI-Key': `${API_KEY}`,
+      'X-RapidAPI-Host': `${API_HOST}`
+    }
+  };
+
+    const handleSubmit = async (event) => {
+    event.preventDefault();
+    await axios.request(options).then(function (response) {
+      console.log(response.data.search_params.sid);
+      setSid(response.data.search_params.sid)
+    }).catch(function (error) {
+      console.error(error);
+    });
+    getSearchResults()
+  }
+
+  const getSearchResults = async (event) => {
+    event.preventDefault()
+  await axios.request(options2).then(function (response) {
+    console.log(response.data);
+  }).catch(function (error) {
+    console.error(error);
+  });
+}
+
   return (
     <div className="App">
       <Routes>
@@ -58,7 +111,7 @@ function App() {
         <Route path='/trips' element={<Trip tripDeleted={tripDeleted} viewTripDetails={viewTripDetails} getUserTrips={getUserTrips} trips={trips} setUser={setUser} authorized={authorized}
         userId={userId} />} />
         <Route path='/trip/:id' element={<TripDetails viewTripDetails={viewTripDetails} tripUpdated={tripUpdated} setTripUpdated={setTripUpdated} setTripDeleted={setTripDeleted} getUserTrips={getUserTrips} selectedTrip={selectedTrip} setUser={setUser} authorized={authorized}/>} />
-        <Route path='/search' element={<Search setUser={setUser} authorized={authorized}/>} />
+        <Route path='/search' element={<Search date={date} origin={origin} destination={destination} setDate={setDate} setOrigin={setOrigin} setDestination={setDestination} API_HOST={API_HOST} API_KEY={API_KEY} sid={sid} setUser={setUser} authorized={authorized}/>} handleSubmit={handleSubmit} getSearchResults={getSearchResults}/>
       </Routes>
       
     </div>

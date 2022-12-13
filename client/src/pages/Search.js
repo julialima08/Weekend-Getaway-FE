@@ -4,60 +4,69 @@ import axios from 'axios'
 import { useState } from 'react'
 import SearchFlights from '../components/SearchFlights'
 
-const Search = ({setUser, authorized}) => {
+const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, handleSubmit, getSearchResults, date, origin, destination, API_HOST, API_KEY}) => {
 
   let navigate = useNavigate()
-  const API_KEY= process.env.REACT_API_KEY
-  const APP_SECRET = process.env.REACT_API_SECRET
-  const ACCESS_TOKEN = process.env.REACT_ACCESS_TOKEN
+  // const API_KEY= process.env.REACT_API_KEY
+  // const API_HOST = process.env.REACT_API_HOST
+  
 
 
-  const [destination, setDestination] = useState('');
-  const [date, setDate] = useState('');
-  const [origin, setOrigin] = useState('');
+  // const [destination, setDestination] = useState('');
+  // const [date, setDate] = useState('');
+  // const [origin, setOrigin] = useState('');
+  // const [sid, setSid] = useState('')
   const [searchResults, setSearchResults] = useState({})
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    searchFlights(destination, date, origin);
-  }
-  const searchFlights = async (destination, date, origin) => {
-const res = await axios.get({
-  BaseURL: `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${origin}&destinationLocationCode=${destination}&departureDate=${date}&adults=1&nonStop=false&max=250`,
-  params: {
-    
-  },
-  headers: {
-    Authorization: `${ACCESS_TOKEN}`,
-    client_id: `${API_KEY}`,
-    client_secret: `${APP_SECRET}`
-  }
-})
-console.log(res.data)
-  }
-
-  // const [searchResults, setSearchResults] = useState([])
-  // const [searched, toggleSearched] = useState(false)
-  // const [searchQuery, setSearchQuery] = useState('')
-
-
-  // const getSearchResults = async (e) => {
-  //   e.preventDefault()
-  //   await axios
-  //     .request(searchFlights)
-  //     .then(function (response) {
-  //       setSearchResults(response.data)
-  //       toggleSearched(true)
-  //       setSearchQuery('')
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error)
-  //     })
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   await axios.request(options).then(async function (response) {
+  //     console.log(response.data.search_params.sid);
+  //     await setSid(response.data.search_params.sid)
+  //   }).catch(function (error) {
+  //     console.error(error);
+  //   });
+  //   getSearchResults()
+  //   // searchFlights(destination, date, origin);
   // }
+  
+//   const getSearchResults = async (event) => {
+//     event.preventDefault()
+//   await axios.request(options2).then(function (response) {
+//     console.log(response.data);
+//   }).catch(function (error) {
+//     console.error(error);
+//   });
+// }
+  // const options = {
+  //   method: 'GET',
+  //   url: 'https://travel-advisor.p.rapidapi.com/flights/create-session',
+  //   params: {
+  //     o1: `${origin}`,
+  //     d1: `${destination}`,
+  //     dd1: `${date}`,
+  //     currency: 'USD',
+  //     ta: '1'
+  //   },
+  //   headers: {
+  //     'X-RapidAPI-Key': `${API_KEY}`,
+  //     'X-RapidAPI-Host': `${API_HOST}`
+  //   }
+  // };
 
-  // const handleChange = (event) => {
-  //   setSearchQuery(event.target.value)
-  // }
+  // const options2 = {
+  //   method: 'GET',
+  //   url: 'https://travel-advisor.p.rapidapi.com/flights/poll',
+  //   params: {sid: `${sid}`, so: 'PRICE', currency: 'USD'},
+  //   headers: {
+  //     'X-RapidAPI-Key': `${API_KEY}`,
+  //     'X-RapidAPI-Host': `${API_HOST}`
+  //   }
+  // };
+  
+  
+
+
 
   return (
     <div>
@@ -72,7 +81,7 @@ console.log(res.data)
               value={searchQuery}
               authorized={authorized}
             /> */}
-            <SearchFlights handleSubmit={handleSubmit} origin={origin} date={date} destination={destination} setDate={setDate} setDestination={setDestination} setOrigin={setOrigin}/>
+            <SearchFlights handleSubmit={(event) => handleSubmit(event)} getSearchResults={(event) => getSearchResults(event)} origin={origin} date={date} destination={destination} setDate={setDate} setDestination={setDestination} setOrigin={setOrigin}/>
             <button onClick={()=>navigate('/home')}>back</button>
           </div>
         </div>
