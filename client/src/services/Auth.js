@@ -62,9 +62,10 @@ export const deleteTrip = async (tripId) => {
   }
 }
 
-export const updateTrip = async (tripId) => {
+export const updateTrip = async (tripId, data ) => {
   try {
-    await Client.put(`/trips/${tripId}`)
+    const res = await Client.put(`/trips/${tripId}`, data)
+    return res.data
   } catch (error) {
     throw error
   }

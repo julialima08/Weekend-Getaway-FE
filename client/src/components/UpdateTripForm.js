@@ -15,7 +15,7 @@ const UpdateTripForm = ({tripId, setTripUpdated, selectedTrip, setButtonClicked,
   let navigate = useNavigate()
 
   const handleSubmit = async (event) => {
-    let tripId = selectedTrip.id
+    let tripId = parseInt(selectedTrip.id)
     event.preventDefault()
     await updateTrip(tripId, formState)
     setTripUpdated(true)

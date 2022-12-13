@@ -31,8 +31,7 @@ const TripDetails = ({
   }
 
   const removeFlight = async (id) => {
-    let flight = {...selectedTrip.Flights, index: selectedTrip.Flights.index}
-    await axios.put(`${BASE_URL}/trips/remove/${selectedTrip.id}`)
+    await axios.delete(`${BASE_URL}/flights/delete/${id}`)
   }
 
   // let flightsArr = selectedTrip.Flights
@@ -66,12 +65,12 @@ const TripDetails = ({
                     <h2>{selectedTrip.destination}</h2>
                     <h2>{selectedTrip.date}</h2>
                     <div>
-                      {selectedTrip.Flights.map((flight)=> (
+                      {selectedTrip.flights.map((flight, index)=> (
                       <FlightCard
                       airline={flight.airline}
                       price={flight.price}
                       departure={flight.departure}
-                      onClick={()=>removeFlight(flight.id)}
+                      onClick={()=>removeFlight(flight.id, index)}
                       />
                     ))}
                     </div>
