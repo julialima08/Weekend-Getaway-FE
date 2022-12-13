@@ -57,7 +57,7 @@ function App() {
         <Route path='/home' element={<Home setUser={setUser} authorized={authorized}/>} />
         <Route path='/trips' element={<Trip tripDeleted={tripDeleted} viewTripDetails={viewTripDetails} getUserTrips={getUserTrips} trips={trips} setUser={setUser} authorized={authorized}
         userId={userId} />} />
-        <Route path='/trip/:id' element={<TripDetails tripUpdated={tripUpdated} setTripUpdated={setTripUpdated} setTripDeleted={setTripDeleted} getUserTrips={getUserTrips} selectedTrip={selectedTrip} setUser={setUser} authorized={authorized}/>} />
+        <Route path='/trip/:id' element={<TripDetails viewTripDetails={viewTripDetails} tripUpdated={tripUpdated} setTripUpdated={setTripUpdated} setTripDeleted={setTripDeleted} getUserTrips={getUserTrips} selectedTrip={selectedTrip} setUser={setUser} authorized={authorized}/>} />
         <Route path='/search' element={<Search setUser={setUser} authorized={authorized}/>} />
       </Routes>
       
