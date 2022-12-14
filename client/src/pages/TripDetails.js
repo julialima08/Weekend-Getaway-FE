@@ -18,7 +18,8 @@ const TripDetails = ({
   tripUpdated,
   viewTripDetails,
   setTripId,
-  tripId
+  // tripId,
+ 
 }) => {
   let navigate = useNavigate()
   const [buttonClicked, setButtonClicked] = useState(false)
@@ -31,11 +32,12 @@ const TripDetails = ({
 
   const updatedTrip = () => {
     setButtonClicked(!buttonClicked)
+    console.log(tripUpdated)
   }
 
   const removeFlight = async (id) => {
     await axios.delete(`${BASE_URL}/flights/delete/${id}`)
-    // setTripUpdated(true)
+    setTripUpdated(true)
   }
 
 const addFlight = (id) => {
@@ -44,13 +46,14 @@ navigate(`/search`)
 // setTripUpdated(true)
 }
 
-  // let { tripId } = useParams()
-  useEffect(() => {
-    if (tripUpdated) {
-      viewTripDetails(tripId)
-      
-    }
-  })
+let { trip }  = useParams()
+
+
+useEffect(() => {
+  if (tripUpdated) {
+  viewTripDetails(selectedTrip.id)
+}
+}, [tripUpdated])
 
 
   return (
@@ -78,6 +81,9 @@ navigate(`/search`)
                       buttonClicked={buttonClicked}
                       setTripUpdated={setTripUpdated}
                       selectedTrip={selectedTrip}
+                      setTripId={setTripId}
+                      // tripId={tripId}
+                      tripUpdated={tripUpdated}
                     />
                   </div>
                 ) : (

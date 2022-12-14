@@ -47,6 +47,7 @@ function App() {
     navigate(`/trip/${id}`)
       const res = await axios.get(`${BASE_URL}/trips/${id}`)
       setSelectedTrip(res.data)
+      // setTripId(res.data.id)
   }
 
   const [destination, setDestination] = useState('');
@@ -104,11 +105,16 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Login setUser={setUser} />} />
+
         <Route path='/home' element={<Home setUser={setUser} authorized={authorized}/>} />
+
         <Route path='/trips' element={<Trip tripDeleted={tripDeleted} viewTripDetails={viewTripDetails} getUserTrips={getUserTrips} trips={trips} setUser={setUser} authorized={authorized}
         userId={userId} />} />
-        <Route path='/trip/:id' element={<TripDetails viewTripDetails={viewTripDetails} tripUpdated={tripUpdated} setTripUpdated={setTripUpdated} setTripDeleted={setTripDeleted} getUserTrips={getUserTrips} selectedTrip={selectedTrip} setUser={setUser} authorized={authorized} setTripId={setTripId} tripId={tripId} />} />
+
+        <Route path='/trip/:id' element={<TripDetails viewTripDetails={viewTripDetails} tripUpdated={tripUpdated} setTripUpdated={setTripUpdated} setTripDeleted={setTripDeleted} getUserTrips={getUserTrips} selectedTrip={selectedTrip} setUser={setUser} authorized={authorized} setTripId={setTripId} tripId={tripId} setSelectedTrip={setSelectedTrip} />} />
+
         <Route path='/search' element={<Search date={date} origin={origin} destination={destination} setDate={setDate} setOrigin={setOrigin} setDestination={setDestination} API_HOST={API_HOST} API_KEY={API_KEY} sid={sid} setUser={setUser} authorized={authorized} handleSubmit={handleSubmit} searchResults={searchResults} trips={trips} tripId={tripId} />} />
+
       </Routes>
       
     </div>
