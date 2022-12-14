@@ -47,7 +47,6 @@ function App() {
     navigate(`/trip/${id}`)
       const res = await axios.get(`${BASE_URL}/trips/${id}`)
       setSelectedTrip(res.data)
-      console.log(res.data)
   }
 
   const [destination, setDestination] = useState('');
@@ -88,19 +87,16 @@ function App() {
     }
   };
 
-    const handleSubmit = () => {
-    axios.request(options).then(function (res) {
-      setSid(res.data.search_params.sid)
-    }).then(async function () {
-      await axios.request(options2).then(function (response) {
-        console.log(response.data);
+    const handleSubmit = async () => {
+    await axios.request(options).then(async function (res) {
+      await setSid(res.data.search_params.sid)
+    })
+    await axios.request(options2).then(function (response) {
         setSearchResults(response.data.itineraries)
       })
-    }).catch(function (error) {
-      console.error(error);
-    });
-   
-  }
+    // console.log(response.data);
+    }
+    const [tripId, setTripId] = useState(null)
   
 
 
@@ -111,8 +107,8 @@ function App() {
         <Route path='/home' element={<Home setUser={setUser} authorized={authorized}/>} />
         <Route path='/trips' element={<Trip tripDeleted={tripDeleted} viewTripDetails={viewTripDetails} getUserTrips={getUserTrips} trips={trips} setUser={setUser} authorized={authorized}
         userId={userId} />} />
-        <Route path='/trip/:id' element={<TripDetails viewTripDetails={viewTripDetails} tripUpdated={tripUpdated} setTripUpdated={setTripUpdated} setTripDeleted={setTripDeleted} getUserTrips={getUserTrips} selectedTrip={selectedTrip} setUser={setUser} authorized={authorized}/>} />
-        <Route path='/search' element={<Search date={date} origin={origin} destination={destination} setDate={setDate} setOrigin={setOrigin} setDestination={setDestination} API_HOST={API_HOST} API_KEY={API_KEY} sid={sid} setUser={setUser} authorized={authorized} handleSubmit={handleSubmit} searchResults={searchResults} trips={trips}/>} />
+        <Route path='/trip/:id' element={<TripDetails viewTripDetails={viewTripDetails} tripUpdated={tripUpdated} setTripUpdated={setTripUpdated} setTripDeleted={setTripDeleted} getUserTrips={getUserTrips} selectedTrip={selectedTrip} setUser={setUser} authorized={authorized} setTripId={setTripId} tripId={tripId} />} />
+        <Route path='/search' element={<Search date={date} origin={origin} destination={destination} setDate={setDate} setOrigin={setOrigin} setDestination={setDestination} API_HOST={API_HOST} API_KEY={API_KEY} sid={sid} setUser={setUser} authorized={authorized} handleSubmit={handleSubmit} searchResults={searchResults} trips={trips} tripId={tripId} />} />
       </Routes>
       
     </div>

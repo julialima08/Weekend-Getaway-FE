@@ -1,16 +1,17 @@
 import { useNavigate } from "react-router-dom"
 import MainNav from "../components/MainNav"
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SearchFlights from '../components/SearchFlights'
 import FlightCard from "../components/FlightCard"
+import { BASE_URL } from "../globals"
 
-const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, handleSubmit, date, origin, destination, API_HOST, API_KEY, searchResults}) => {
+const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, handleSubmit, date, origin, destination, API_HOST, API_KEY, searchResults, tripId}) => {
 
   let navigate = useNavigate()
   // const API_KEY= process.env.REACT_API_KEY
   // const API_HOST = process.env.REACT_API_HOST
-  const [tripId, setTripId] = useState(null)
+
 
 
   // const [destination, setDestination] = useState('');
@@ -65,7 +66,19 @@ const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, h
   //   }
   // };
   
-  
+  const [trips, setTrips] = useState(null)
+  let userId = localStorage.getItem('id')
+
+  const getTrips = async () => {
+    console.log('hello')
+    let res = await axios.get(`${BASE_URL}/user/${userId}`)
+    setTrips(res.data.Trips)
+    console.log(res)
+  }
+
+  useEffect(()=> {
+    getTrips()
+  }, [])
 
 
 
@@ -99,6 +112,7 @@ const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, h
                   departureAirport2={result.f[0].l[1].da}
                   arrivalAirport2={result.f[0].l[1].aa}
                   tripId={tripId}
+                  trips={trips}
                   /> 
                   ))}
                 </div>

@@ -8,18 +8,18 @@ import { BASE_URL } from "../globals"
 
 const AddFlightToTrip = (props) => {
   const [popUp, setPopUp] = useState(false)
-  const [trip, setTrip] = useState([])
+  // const [trips, setTrips] = useState([])
   const [flight, setFlight] = useState({})
-  let userId = localStorage.getItem('id')
+  // let userId = localStorage.getItem('id')
 
-  const getTrips = async () => {
-    let res = await axios.get(`${BASE_URL}/user/${userId}`)
-    setTrip(res.data.trips)
-  }
+  // const getTrips = async () => {
+  //   let res = await axios.get(`${BASE_URL}/user/${userId}`)
+  //   setTrip(res.data.trips)
+  // }
 
-  useEffect(()=> {
-    getTrips()
-  })
+  // useEffect(()=> {
+  //   getTrips()
+  // })
 
   const togglePopUp = async () => {
     setPopUp(!popUp)
@@ -29,22 +29,21 @@ const AddFlightToTrip = (props) => {
     let response = await axios.post(
       `${BASE_URL}/flights/create`,
       flight
-    )
-    setTrip(response)
+      )
+      console.log(response)
   }
-
+  const [tripId, setTripId] = useState(null)
   let navigate = useNavigate()
-
+  
   const handleSubmit = async (trip) => {
-    await props.setTripId(trip.id)
     await addFlightToTrip(trip)
-    navigate(`/trip/${trip.id}`)
+    navigate(`/trips`)
   }
-
+  
   const handleClick = () => {
-    togglePopUp()
     setFlight(props.flight)
-    console.log(props.flight)
+    togglePopUp()
+    // console.log(props.flight)
   }
 
   if (popUp) {
@@ -68,7 +67,7 @@ const AddFlightToTrip = (props) => {
             </button>
             {flight ? (
             <div className="trip-map">
-              {trip.map((trip) => (
+              {props.trips.map((trip) => (
               <div  key={trip.id}>
               <TripCard title={trip.title} destination={trip.destination} date={trip.date} />
               <div>

@@ -16,7 +16,9 @@ const TripDetails = ({
   setTripDeleted,
   setTripUpdated,
   tripUpdated,
-  viewTripDetails
+  viewTripDetails,
+  setTripId,
+  tripId
 }) => {
   let navigate = useNavigate()
   const [buttonClicked, setButtonClicked] = useState(false)
@@ -33,12 +35,20 @@ const TripDetails = ({
 
   const removeFlight = async (id) => {
     await axios.delete(`${BASE_URL}/flights/delete/${id}`)
+    // setTripUpdated(true)
   }
 
-  let { tripId } = useParams()
+const addFlight = (id) => {
+setTripId(id)
+navigate(`/search`)
+// setTripUpdated(true)
+}
+
+  // let { tripId } = useParams()
   useEffect(() => {
     if (tripUpdated) {
       viewTripDetails(tripId)
+      
     }
   })
 
@@ -58,6 +68,9 @@ const TripDetails = ({
                 <button onClick={() => updatedTrip(selectedTrip.id)}>
                   Edit Trip
                 </button>
+                <button onClick={() => addFlight(selectedTrip.id)}>
+                  Add flights
+                </button>
                 {buttonClicked ? (
                   <div>
                     <UpdateTripForm
@@ -74,14 +87,22 @@ const TripDetails = ({
                     <h2>{selectedTrip.date}</h2>
                     <div>
                       {selectedTrip.flights.map((flight, index)=> (
+                        <div>
                       <FlightCard
                       airline={flight.airline}
                       price={flight.price}
-                      departure={flight.departureAirport}
-                      arrival={flight.arrivalAirport}
-                      departureDate={flight.departure}
-                      onClick={()=>removeFlight(flight.id, index)}
+                      departureAirport={flight.departureAirport}
+                      arrivalAirport={flight.arrivalAirport}
+                      departure={flight.departure}
+                      arrival={flight.arrival}
+                      departure2={flight.departure2}
+                      arrival2={flight.arrival2}
+                      departureAirport2={flight.departureAirport2}
+                      arrivalAirport2={flight.arrivalAirport2}
+                      // onClick={()=>removeFlight(flight.id, index)}
                       />
+                      <button onClick={()=>removeFlight(flight.id, index)}>Remove Flight</button>
+                      </div>
                     ))}
                     </div>
                   </div>

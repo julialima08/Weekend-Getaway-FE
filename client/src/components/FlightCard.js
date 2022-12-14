@@ -1,8 +1,25 @@
 import AddFlightToTrip from "./AddFlightToTrip"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import axios from 'axios'
+import { BASE_URL } from "../globals"
 
 const FlightCard = (props) => {
-  const [tripId, setTripId] = useState(null)
+
+
+
+  let flightInfo = {
+    price: props.price,
+    departure: props.departure,
+    arrival: props.arrival,
+    departureAirport: props.departureAirport,
+    arrivalAirport: props.arrivalAirport,
+    airline: props.airline,
+    departure2: props.departure2,
+    arrival2: props.arrival2,
+    departureAirport2: props.departureAirport2,
+    arrivalAirport2: props.arrivalAirport2,
+    tripId: props.tripId
+  }
 
   return (
     <div>
@@ -61,7 +78,9 @@ const FlightCard = (props) => {
             
         <span className="seat seatslip">DEPARTURE DATE<br></br><span>{props.departure2}</span></span>
         <span className="name nameslip">ARRIVAL TIME<br></br><span>{props.arrival2}</span></span>
-         <AddFlightToTrip setTripId={setTripId} tripId={tripId} flight={props}/>
+        <span className='seat'>
+         <AddFlightToTrip  trips={props.trips}  flight={flightInfo}/>
+         </span>
       </div>
     </div>
   </div>
@@ -71,15 +90,3 @@ const FlightCard = (props) => {
 }
 
 export default FlightCard
-    // <div>
-    //   <h3>{props.airline}</h3>
-    //   <h3>{props.price}</h3>
-    //   <h3>{props.departure}</h3>
-    //   <h3>{props.arrival}</h3>
-    //   <h3>{props.departureCity}</h3>
-    //   <h3>{props.arrivalCity}</h3>
-    //   <h3>{props.departureAirport}</h3>
-    //   <h3>{props.arrivalAirport}</h3>
-    //   <h3>{props.duration}</h3>
-    //   <button onClick={props.onClick}>Remove flight</button>
-    // </div>
