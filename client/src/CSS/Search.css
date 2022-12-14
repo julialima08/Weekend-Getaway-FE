@@ -11,13 +11,15 @@
 
 .search-engine form {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
 }
 
 .search-engine label {
   margin: 10px 0;
   font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .search-engine input {
@@ -42,4 +44,14 @@
   display: flex;
   flex-direction: column;
   /* height: 100vh; */
+}
+
+.back {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #cd4b13;
+  color: #FFFFFF;
+  font-size: 18px;
+  cursor: pointer;
 }

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import SearchFlights from '../components/SearchFlights'
 import FlightCard from "../components/FlightCard"
 import { BASE_URL } from "../globals"
+import '../CSS/Search.css'
 
 const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, handleSubmit, date, origin, destination, API_HOST, API_KEY, searchResults, tripId}) => {
 
@@ -127,7 +128,7 @@ const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, h
         <div>
           <h1>Your not authorized!</h1>
           <h2>Please login or create an account first</h2>
-          <button onClick={()=> navigate('/')}>Back</button>
+          <button className="back" onClick={()=> navigate('/')}>Back</button>
         </div>
       )}
     </div>

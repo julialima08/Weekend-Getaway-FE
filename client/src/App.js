@@ -55,8 +55,8 @@ function App() {
   const [origin, setOrigin] = useState('');
   const [sid, setSid] = useState(null)
   const [searchResults, setSearchResults] = useState(null)
-  const API_KEY= process.env.REACT_API_KEY
-  const API_HOST = process.env.REACT_API_HOST
+  const API_KEY= process.env.REACT_APP_KEY
+  const API_HOST = process.env.REACT_APP_HOST
 
   const options = {
     method: 'GET',
