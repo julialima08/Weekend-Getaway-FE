@@ -69,8 +69,8 @@ function App() {
       c: '0'
     },
     headers: {
-      'X-RapidAPI-Key': `ba93b620demshd994d6f58d1b9e8p182feejsnebaa3d3c1d4d`,
-      'X-RapidAPI-Host': `travel-advisor.p.rapidapi.com`
+      'X-RapidAPI-Key': `${API_KEY}`,
+      'X-RapidAPI-Host': `${API_HOST}`
     }
   };
 
@@ -82,8 +82,8 @@ function App() {
     n: '30'
   },
     headers: {
-      'X-RapidAPI-Key': `ba93b620demshd994d6f58d1b9e8p182feejsnebaa3d3c1d4d`,
-      'X-RapidAPI-Host': `travel-advisor.p.rapidapi.com`
+      'X-RapidAPI-Key': `${API_KEY}`,
+      'X-RapidAPI-Host': `${API_HOST}`
     }
   };
 
