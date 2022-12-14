@@ -3,10 +3,13 @@ import '../CSS/Search.css';
 
 const SearchFlights = (props) => {
 
-
+const submit = (e)=> {
+  e.preventDefault()
+  props.handleSubmit()
+} 
   return (
     <div className="search-engine">
-    <form onSubmit={(event)=>  props.handleSubmit(event).then((event)=>  props.getSearchResults(event))}>
+    <form onSubmit={submit}>
       <label>
         Origin:
         <input

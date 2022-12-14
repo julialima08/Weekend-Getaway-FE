@@ -38,3 +38,8 @@
   font-size: 18px;
   cursor: pointer;
 }
+.searchResults {
+  display: flex;
+  flex-direction: column;
+  /* height: 100vh; */
+}

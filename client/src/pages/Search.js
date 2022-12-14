@@ -3,20 +3,21 @@ import MainNav from "../components/MainNav"
 import axios from 'axios'
 import { useState } from 'react'
 import SearchFlights from '../components/SearchFlights'
+import FlightCard from "../components/FlightCard"
 
-const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, handleSubmit, getSearchResults, date, origin, destination, API_HOST, API_KEY}) => {
+const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, handleSubmit, date, origin, destination, API_HOST, API_KEY, searchResults}) => {
 
   let navigate = useNavigate()
   // const API_KEY= process.env.REACT_API_KEY
   // const API_HOST = process.env.REACT_API_HOST
-  
+  const [tripId, setTripId] = useState(null)
 
 
   // const [destination, setDestination] = useState('');
   // const [date, setDate] = useState('');
   // const [origin, setOrigin] = useState('');
   // const [sid, setSid] = useState('')
-  const [searchResults, setSearchResults] = useState({})
+  // const [searchResults, setSearchResults] = useState({})
 
   // const handleSubmit = async (event) => {
   //   event.preventDefault();
@@ -81,7 +82,30 @@ const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, h
               value={searchQuery}
               authorized={authorized}
             /> */}
-            <SearchFlights handleSubmit={(event) => handleSubmit(event)} getSearchResults={(event) => getSearchResults(event)} origin={origin} date={date} destination={destination} setDate={setDate} setDestination={setDestination} setOrigin={setOrigin}/>
+            <SearchFlights handleSubmit={handleSubmit} origin={origin} date={date} destination={destination} setDate={setDate} setDestination={setDestination} setOrigin={setOrigin}/>
+            <div className="searchResults">
+              {searchResults ? (
+                <div>
+                  {searchResults.map((result) => (
+                  <FlightCard 
+                  price={result.l[0].pr.dp}
+                  departure={result.f[0].l[0].dd}
+                  arrival={result.f[0].l[0].ad}
+                  departureAirport={result.f[0].l[0].da}
+                  arrivalAirport={result.f[0].l[0].aa}
+                  airline={result.f[0].l[0].m}
+                  departure2={result.f[0].l[1].dd}
+                  arrival2={result.f[0].l[1].ad}
+                  departureAirport2={result.f[0].l[1].da}
+                  arrivalAirport2={result.f[0].l[1].aa}
+                  tripId={tripId}
+                  /> 
+                  ))}
+                </div>
+              ) : (
+              <h1>Search For Flights</h1>
+              )}
+            </div>
             <button onClick={()=>navigate('/home')}>back</button>
           </div>
         </div>

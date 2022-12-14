@@ -48,11 +48,11 @@ return (
           <div>
           <h1>Trips</h1>
           <CreateTripForm getUserTrips={getUserTrips} createTrip={createTrip} newTrip={newTrip} handleChange={handleChange} setNewTrip={setNewTrip} initialState={initialState}/>
-          <div>
+          <div >
             {trips != null ? (
-              <div>
+              <div className="trip-map">
               {trips.map((trip) => (
-              <div key={trip.id}>
+              <div  key={trip.id}>
               <TripCard title={trip.title} destination={trip.destination} date={trip.date} onClick={()=> viewTripDetails(trip.id)}/>
               </div>
             ))}

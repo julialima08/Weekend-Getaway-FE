@@ -77,7 +77,9 @@ const TripDetails = ({
                       <FlightCard
                       airline={flight.airline}
                       price={flight.price}
-                      departure={flight.departure}
+                      departure={flight.departureAirport}
+                      arrival={flight.arrivalAirport}
+                      departureDate={flight.departure}
                       onClick={()=>removeFlight(flight.id, index)}
                       />
                     ))}
