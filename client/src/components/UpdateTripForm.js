@@ -26,25 +26,28 @@ const UpdateTripForm = ({setTripId, tripId, setTripUpdated, selectedTrip, setBut
     setFormState({ ...formState, [event.target.name]: event.target.value })
   }
   return (
-    <div>
+    <div className='update-trip'>
       <form onSubmit={handleSubmit}>
         <input
         onChange={handleChange}
         value={formState.title}
         name='title'
         placeholder='title'
+        className='update-input'
         ></input>
         <input
         onChange={handleChange}
         value={formState.destination}
         name='destination'
         placeholder='destination'
+        className='update-input'
         ></input>
         <input
         onChange={handleChange}
         value={formState.date}
         name='date'
         placeholder='date'
+        className='update-input'
         ></input>
         <button>Submit</button>
       </form>

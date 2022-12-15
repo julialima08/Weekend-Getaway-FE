@@ -46,7 +46,7 @@
   align-items: center;
   justify-content: center;
   width: 60vw;
-  padding: 1rem;
+  padding: .4rem;
   background-color: #011638; 
   color: #FFFFFF;
   box-shadow: 0 0 1rem #388697;
@@ -64,7 +64,7 @@
 }
 
 .button2 {
-  margin-top: 1rem;
+  margin-top: .7rem;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   background-color: #cd4b13;

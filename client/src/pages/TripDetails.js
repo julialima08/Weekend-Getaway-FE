@@ -8,6 +8,8 @@ import UpdateTripForm from '../components/UpdateTripForm'
 import FlightCard from '../components/FlightCard'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import '../CSS/TripDetails.css'
+import '../CSS/Trips.css'
 
 const TripDetails = ({
   authorized,
@@ -46,7 +48,7 @@ navigate(`/search`)
 // setTripUpdated(true)
 }
 
-let { trip }  = useParams()
+// let { trip }  = useParams()
 
 
 useEffect(() => {
@@ -59,10 +61,10 @@ useEffect(() => {
   return (
     <div>
       {authorized ? (
-        <div>
+        <div className='trip-det-page'>
           <MainNav setUser={setUser} />
-          <div>
-            <h1>Trip details</h1>
+          <div className='trip-details'>
+            <h1 className='detail-title'>Trip details</h1>
             {selectedTrip ? (
               <div>
                 <button onClick={() => deleteClick(selectedTrip.id)}>
@@ -88,9 +90,11 @@ useEffect(() => {
                   </div>
                 ) : (
                   <div>
-                    <h2>{selectedTrip.title}</h2>
-                    <h2>{selectedTrip.destination}</h2>
-                    <h2>{selectedTrip.date}</h2>
+                    <div className='info'>
+                    <div>{selectedTrip.title}</div>
+                    <div>{selectedTrip.destination}</div>
+                    <div>{selectedTrip.date}</div>
+                    </div>
                     <div>
                       {selectedTrip.flights.map((flight, index)=> (
                         <div>
@@ -115,7 +119,9 @@ useEffect(() => {
                 )}
               </div>
             ) : null}
+            <div className='bk-bnt'>
             <button onClick={() => navigate('/trips')}>back</button>
+            </div>
           </div>
         </div>
       ) : (
