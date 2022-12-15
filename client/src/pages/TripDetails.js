@@ -20,7 +20,9 @@ const TripDetails = ({
   viewTripDetails,
   setTripId,
 }) => {
+
   let navigate = useNavigate()
+
   const [buttonClicked, setButtonClicked] = useState(false)
 
   const deleteClick = async (id) => {
@@ -39,16 +41,16 @@ const TripDetails = ({
     setTripUpdated(true)
   }
 
-const addFlight = (id) => {
-setTripId(id)
-navigate(`/search`)
-}
+  const addFlight = (id) => {
+    setTripId(id)
+    navigate(`/search`)
+  }
 
-useEffect(() => {
+  useEffect(() => {
   if (tripUpdated) {
-  viewTripDetails(selectedTrip.id)
-}
-}, [tripUpdated])
+    viewTripDetails(selectedTrip.id)
+  }
+  }, [tripUpdated])
 
 
   return (
@@ -102,7 +104,6 @@ useEffect(() => {
                       arrival2={flight.arrival2}
                       departureAirport2={flight.departureAirport2}
                       arrivalAirport2={flight.arrivalAirport2}
-                     
                       />
                       <button onClick={()=>removeFlight(flight.id, index)}>Remove Flight</button>
                       </div>
