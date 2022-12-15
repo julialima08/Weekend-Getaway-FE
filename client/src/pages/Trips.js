@@ -68,7 +68,7 @@ return (
             </div>
             ) : (null) }
           </div>
-          <button className="btn-popup" onClick={()=>navigate('/home')}>back</button>
+          <button className="back" onClick={()=>navigate('/home')}>back</button>
           </div>
         </div>
       ) : (

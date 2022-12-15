@@ -1,4 +1,12 @@
 /* SearchEngine.css */
+body {
+  margin: 0px;
+}
+
+.nav {
+  top: 0px;
+}
+
 
 .search-engine {
   display: flex;
@@ -7,6 +15,7 @@
   padding: 20px;
   background-color: #011638;
   color: #d2d7df;
+  margin-top: 90px;
 }
 
 .search-engine form {
@@ -18,8 +27,8 @@
 .search-engine label {
   margin: 10px 0;
   font-size: 18px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 50px;
 }
 
 .search-engine input {
@@ -47,11 +56,13 @@
 }
 
 .back {
-  padding: 10px 20px;
+  padding: 9px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   background-color: #cd4b13;
   color: #FFFFFF;
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
+  margin-top: 18px;
+  box-shadow: 0 0 0.5rem #388697;
 }

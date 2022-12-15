@@ -2,6 +2,7 @@ import AddFlightToTrip from "./AddFlightToTrip"
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { BASE_URL } from "../globals"
+import '../CSS/Trips.css'
 
 const FlightCard = (props) => {
 
@@ -78,7 +79,7 @@ const FlightCard = (props) => {
             
         <span className="seat seatslip">DEPARTURE DATE<br></br><span>{props.departure2}</span></span>
         <span className="name nameslip">ARRIVAL TIME<br></br><span>{props.arrival2}</span></span>
-        <span className='seat'>
+        <span className='add'>
          <AddFlightToTrip  trips={props.trips}  flight={flightInfo}/>
          </span>
       </div>

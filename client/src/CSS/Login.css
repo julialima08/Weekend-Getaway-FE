@@ -15,7 +15,7 @@
   justify-content: center;
   width: 65%;
   height: 45%;
-  padding: 2rem;
+  padding: 3rem;
   border-radius: 1rem;
   background-color: #011638;
   color: #FFFFFF;
@@ -31,7 +31,7 @@
   box-shadow: 0 0 0.5rem #d2d7df;
   cursor: pointer;
   transition: all 0.2s;
-  width: 130px;
+  width: 140px;
 }
 
 .homeButton:hover {
@@ -46,9 +46,9 @@
   align-items: center;
   justify-content: center;
   width: 60vw;
-  padding: 2rem;
+  padding: 1rem;
   background-color: #011638; 
-   color: #FFFFFF;
+  color: #FFFFFF;
   box-shadow: 0 0 1rem #388697;
   border-radius: 10px;
 }

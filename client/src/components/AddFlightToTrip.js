@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../CSS/App.css'
-import '../CSS/popup.css'
+import '../CSS/popup2.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import TripCard from './TripCard'
@@ -47,32 +47,35 @@ const AddFlightToTrip = (props) => {
   }
 
   if (popUp) {
-    document.body.classList.add('active-popUp')
+    document.body.classList.add('active-popUp2')
   } else {
-    document.body.classList.remove('active-popUp')
+    document.body.classList.remove('active-popUp2')
   }
 
   return (
     <>
-      <button onClick={handleClick} className="btn-popUp">
+    <div >
+      <button onClick={handleClick} className="btn-popUp2">
         Add to trip
       </button>
-
+    </div>
       {popUp && (
-        <div className="popUp">
-          <div onClick={togglePopUp} className="overlay"></div>
-          <div className="popUp-content">
-            <button className="close-popUp" onClick={togglePopUp}>
+        <div className="popUp2">
+          <div onClick={togglePopUp} className="overlay2"></div>
+          <div className="popUp-content2">
+            <div className="close-popUp2">
+            <button onClick={togglePopUp}>
               CLOSE
             </button>
+            </div>
             {flight ? (
-            <div className="trip-map">
+            <div className="trip-map2">
               {props.trips.map((trip) => (
               <div  key={trip.id}>
               <TripCard title={trip.title} destination={trip.destination} date={trip.date} />
               <div>
                   <button
-                    className="add"
+                    className="add2"
                     onClick={() => handleSubmit(trip)}
                   >
                     add to trip

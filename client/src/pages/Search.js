@@ -84,18 +84,11 @@ const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, h
 
 
   return (
-    <div>
+    <div >
       {authorized ? (
-        <div>
+        <div className="search">
           <MainNav setUser={setUser}/>
-          <div>
-            <h1>Search</h1>
-            {/* <Search
-              onSubmit={getSearchResults}
-              onChange={handleChange}
-              value={searchQuery}
-              authorized={authorized}
-            /> */}
+          <div className="search-page">
             <SearchFlights handleSubmit={handleSubmit} origin={origin} date={date} destination={destination} setDate={setDate} setDestination={setDestination} setOrigin={setOrigin}/>
             <div className="searchResults">
               {searchResults ? (
