@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
+
 .logo-pic {
   height: 170px;
   width: 170px;
   border-radius: 50%;
+  margin-left: 50px;
   /* border: solid black; */
 }
 body {
-
+  scrollbar-color: #011438;
   background-color: #d2d7df;
 }
 
@@ -17,13 +20,14 @@ body {
 
 .nav {
   width: 100vw;
-  height: 50px;
+  height: 120px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background-color: #011438;
+  /* align-items: center; */
+  /* background-color: #011438; */
+  background: linear-gradient(180deg, rgb(1, 20, 56, 1),rgb(210, 215, 223, 0) );
   position: fixed;
-  z-index: 0;
+  z-index: 2;
 }
 .nav-buttons {
   margin: 5px;
@@ -32,40 +36,70 @@ body {
   color: white;
   font-size: 15px;
 }
+.bnt {
+  margin-top: 10px;
+}
+
+.logout {
+  padding-right: 20px;
+}
 
 .home-pic {
-  width: 85vw;
+  position: relative;
+  width: 65vw;
+  height: 290px;
+  top: 85px;
+  z-index: 0;
+  margin: 0;
+}
+
+.home-frame { 
+  position:absolute;
+  width: 95vw;
   height: 280px;
-  margin-top: 10px;
+  margin-top: 33px;
+  z-index: 1;
+}
+
+.frame {
+  width: 48vw;
+  height: 380px;
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  height: 470px;
+  height: 560px;
   background-color: #aaaeb5;
   align-items: center;
+  border-bottom:  solid 5px #011438;
 }
 
 .logo-description {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   height: 250px;
   padding: 10px;
+  width: 85vw;
+  margin-top: 80px;
 }
  .description {
   padding: 10px;
-  width: 92%;
+  width: 80%;
+  text-align: center;
+  margin-left: 60px;
+  color: #011438;
+  font-family: 'Cormorant Garamond', serif;
  }
 
  .home-options {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 70px;
 }
 .home-trips {
-   margin: 10px;
+  margin: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,9 +109,12 @@ body {
   border-radius: 10px;
   padding: 20px;
   color: white;
-  margin-bottom: 150px;
- }
-
+  margin-bottom: 120px;
+  box-shadow: 0 0 0.5rem #388697;
+}
+p {
+font-family: 'Cormorant Garamond', serif;
+}
 
  .windowSeat {
   position: relative;

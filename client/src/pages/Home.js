@@ -13,7 +13,12 @@ let navigate = useNavigate()
         <div>
           <MainNav setUser={setUser}/>
           <div className="header">
-            <img className="home-pic" src='https://ucarecdn.com/2571c0e0-8d8a-49ab-a9c6-fca85f065bec/'></img>
+            <div className="home-pic">
+            <img src='https://ucarecdn.com/2571c0e0-8d8a-49ab-a9c6-fca85f065bec/'></img>
+            </div>
+            <div className="home-frame">
+            <img className="frame" src="https://ucarecdn.com/d557f062-a4b4-4451-93d3-5451d43bdf5f/"></img>
+            </div>
             <div className="logo-description">
               <div>
             <img className="logo-pic" src="https://ucarecdn.com/a5f1511c-e65a-4ad2-ab94-359420384902/"></img></div>
@@ -63,20 +68,4 @@ let navigate = useNavigate()
   )
 }
 
-// please give me css style for this div with only these colors: 
-// #FFFFFF
-// #011638
-// #388697
-// #d2d7df
-// #cd4b13
-
-// this is the div to style:
-//  <div className="home-trips">
-//           <div class="windowSeat">
-//             </div>
-//             <div>
-//               <p>Search hundreds of Flights, Hotels, and Activities. Compare prices and get the best deal out there. </p>
-//               <button onClick={()=> navigate('/search')}>Search</button>
-//             </div>
-//           </div>
 export default Home

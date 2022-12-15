@@ -11,12 +11,12 @@ const MainNav = ({ setUser }) => {
 
 return (
   <div className="nav">
-    <div >
+    <div className="bnt">
       <button className="nav-buttons" onClick={()=> navigate('/home')}>Home</button>
       <button className="nav-buttons" onClick={()=> navigate('/trips')}>My Trips</button>
       <button className="nav-buttons" onClick={()=> navigate('/search')}>Search</button>
     </div>
-    <div>
+    <div className="logout">
       <button className="nav-buttons" onClick={logOutUser}>Logout</button>
     </div>
   </div>
