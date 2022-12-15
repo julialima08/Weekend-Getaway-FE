@@ -4,7 +4,7 @@
 
 ### By: Julia Lima
 
-#### [Github](https://github.com/julialima08) | [Linkedin](https://www.linkedin.com/in/julia-lima-279697249/) | [Trello](https://trello.com/b/w68hSiXG/weekend-getaway) | [Official Cite](blha)  | [Backend Repo](https://github.com/julialima08/Weekend-Getaway-BE)
+#### [Github](https://github.com/julialima08) | [Linkedin](https://www.linkedin.com/in/julia-lima-279697249/) | [Trello](https://trello.com/b/w68hSiXG/weekend-getaway) | [Official Cite](https://wg-frontend.herokuapp.com)  | [Backend Repo](https://github.com/julialima08/Weekend-Getaway-BE)
 
 ---
 
@@ -43,18 +43,18 @@
 
 #### Welcome Page
 
-![home page](https://repository-images.githubusercontent.com/248812720/56902700-c5bd-11ea-813f-ed8631377258)
+![home page](https://ucarecdn.com/47e7d865-9d87-47e6-8841-36ac7689073b/)
 
 ---
 
 #### My Trips Page
 
-![trips page](https://repository-images.githubusercontent.com/248812720/56902700-c5bd-11ea-813f-ed8631377258)
+![trips page](https://ucarecdn.com/a546757c-1630-4974-9b4a-b5576c342a08/)
 
 ---
 #### Search Page
 
-![search page](https://repository-images.githubusercontent.com/248812720/56902700-c5bd-11ea-813f-ed8631377258)
+![search page](https://ucarecdn.com/d3094425-09e6-44df-bfe7-1b414d571c0c/)
 
 ---
 
