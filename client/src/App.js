@@ -50,6 +50,7 @@ function App() {
   }
 
   const [destination, setDestination] = useState('');
+  const [tripId, setTripId] = useState(null)
   const [date, setDate] = useState('');
   const [origin, setOrigin] = useState('');
   const [sid, setSid] = useState(null)
@@ -95,9 +96,6 @@ function App() {
         setSearchResults(response.data.itineraries)
       })
     }
-    const [tripId, setTripId] = useState(null)
-  
-
 
   return (
     <div className="App">
