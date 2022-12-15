@@ -25,6 +25,7 @@ const RegisterForm = ({ setIsVisible }) => {
     setNewUser(initialState)
     setIsVisible(true)
   }
+  
 return (
   <div>
   <form className="form" onSubmit={createUser}>
