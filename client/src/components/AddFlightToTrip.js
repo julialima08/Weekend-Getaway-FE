@@ -8,18 +8,8 @@ import { BASE_URL } from "../globals"
 
 const AddFlightToTrip = (props) => {
   const [popUp, setPopUp] = useState(false)
-  // const [trips, setTrips] = useState([])
   const [flight, setFlight] = useState({})
-  // let userId = localStorage.getItem('id')
 
-  // const getTrips = async () => {
-  //   let res = await axios.get(`${BASE_URL}/user/${userId}`)
-  //   setTrip(res.data.trips)
-  // }
-
-  // useEffect(()=> {
-  //   getTrips()
-  // })
 
   const togglePopUp = async () => {
     setPopUp(!popUp)
