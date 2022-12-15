@@ -16,7 +16,6 @@ const Login = ({ setUser }) => {
 return (
   <div className="login">
     <img className="login-pic" src="https://ucarecdn.com/a5f1511c-e65a-4ad2-ab94-359420384902/"></img>
-    {/* <h1>Weekend Getaway</h1> */}
               {isVisible ? (
             <div className="login-form">
               <LoginForm setUser={setUser} />

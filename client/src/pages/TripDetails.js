@@ -1,8 +1,7 @@
-// import axios from "axios"
+
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import MainNav from '../components/MainNav'
-// import { BASE_URL } from "../globals"
 import { deleteTrip } from '../services/Auth'
 import UpdateTripForm from '../components/UpdateTripForm'
 import FlightCard from '../components/FlightCard'
@@ -20,8 +19,6 @@ const TripDetails = ({
   tripUpdated,
   viewTripDetails,
   setTripId,
-  // tripId,
- 
 }) => {
   let navigate = useNavigate()
   const [buttonClicked, setButtonClicked] = useState(false)
@@ -45,11 +42,7 @@ const TripDetails = ({
 const addFlight = (id) => {
 setTripId(id)
 navigate(`/search`)
-// setTripUpdated(true)
 }
-
-// let { trip }  = useParams()
-
 
 useEffect(() => {
   if (tripUpdated) {
@@ -109,7 +102,7 @@ useEffect(() => {
                       arrival2={flight.arrival2}
                       departureAirport2={flight.departureAirport2}
                       arrivalAirport2={flight.arrivalAirport2}
-                      // onClick={()=>removeFlight(flight.id, index)}
+                     
                       />
                       <button onClick={()=>removeFlight(flight.id, index)}>Remove Flight</button>
                       </div>

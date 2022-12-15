@@ -7,66 +7,10 @@ import FlightCard from "../components/FlightCard"
 import { BASE_URL } from "../globals"
 import '../CSS/Search.css'
 
-const Search = ({setUser, authorized, sid, setDate, setDestination, setOrigin, handleSubmit, date, origin, destination, API_HOST, API_KEY, searchResults, tripId}) => {
+const Search = ({setUser, authorized, setDate, setDestination, setOrigin, handleSubmit, date, origin, destination, searchResults, tripId}) => {
 
   let navigate = useNavigate()
-  // const API_KEY= process.env.REACT_API_KEY
-  // const API_HOST = process.env.REACT_API_HOST
 
-
-
-  // const [destination, setDestination] = useState('');
-  // const [date, setDate] = useState('');
-  // const [origin, setOrigin] = useState('');
-  // const [sid, setSid] = useState('')
-  // const [searchResults, setSearchResults] = useState({})
-
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   await axios.request(options).then(async function (response) {
-  //     console.log(response.data.search_params.sid);
-  //     await setSid(response.data.search_params.sid)
-  //   }).catch(function (error) {
-  //     console.error(error);
-  //   });
-  //   getSearchResults()
-  //   // searchFlights(destination, date, origin);
-  // }
-  
-//   const getSearchResults = async (event) => {
-//     event.preventDefault()
-//   await axios.request(options2).then(function (response) {
-//     console.log(response.data);
-//   }).catch(function (error) {
-//     console.error(error);
-//   });
-// }
-  // const options = {
-  //   method: 'GET',
-  //   url: 'https://travel-advisor.p.rapidapi.com/flights/create-session',
-  //   params: {
-  //     o1: `${origin}`,
-  //     d1: `${destination}`,
-  //     dd1: `${date}`,
-  //     currency: 'USD',
-  //     ta: '1'
-  //   },
-  //   headers: {
-  //     'X-RapidAPI-Key': `${API_KEY}`,
-  //     'X-RapidAPI-Host': `${API_HOST}`
-  //   }
-  // };
-
-  // const options2 = {
-  //   method: 'GET',
-  //   url: 'https://travel-advisor.p.rapidapi.com/flights/poll',
-  //   params: {sid: `${sid}`, so: 'PRICE', currency: 'USD'},
-  //   headers: {
-  //     'X-RapidAPI-Key': `${API_KEY}`,
-  //     'X-RapidAPI-Host': `${API_HOST}`
-  //   }
-  // };
-  
   const [trips, setTrips] = useState(null)
   let userId = localStorage.getItem('id')
 

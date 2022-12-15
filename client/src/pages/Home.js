@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+
 import { useNavigate } from "react-router-dom"
 import MainNav from "../components/MainNav"
 import '../CSS/Home.css'
@@ -44,7 +44,6 @@ let navigate = useNavigate()
           <div class="windowSeat">
             <div class="window">
             <div class="clouds"></div>
-            {/* <div class="wing"></div> */}
              <input id='flap2' type='checkbox' />
             <label class='flap2' for='flap2'></label>
             </div>
