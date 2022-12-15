@@ -45,10 +45,19 @@ return (
     {authorized ? (
         <div>
           <MainNav setUser={setUser}/>
+          <div className="tripsPage">
+          <div className="top-title">
+            <div>
+          <h1 className="trip-title">Trips</h1>
+          </div>
           <div>
-          <h1>Trips</h1>
           <CreateTripForm getUserTrips={getUserTrips} createTrip={createTrip} newTrip={newTrip} handleChange={handleChange} setNewTrip={setNewTrip} initialState={initialState}/>
+          </div>
+          </div>
           <div >
+            <div className="cork-div">
+              <img className="cork" src="https://static8.depositphotos.com/1570716/1049/i/950/depositphotos_10495668-stock-photo-cork-board-background.jpg"></img>
+            </div>
             {trips != null ? (
               <div className="trip-map">
               {trips.map((trip) => (
@@ -59,14 +68,14 @@ return (
             </div>
             ) : (null) }
           </div>
-          <button onClick={()=>navigate('/home')}>back</button>
+          <button className="btn-popup" onClick={()=>navigate('/home')}>back</button>
           </div>
         </div>
       ) : (
         <div>
           <h1>Your not authorized!</h1>
           <h2>Please login or create an account first</h2>
-          <button onClick={()=> navigate('/')}>Back</button>
+          <button className="btn-popup" onClick={()=> navigate('/')}>Back</button>
         </div>
       )}
   </div>

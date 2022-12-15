@@ -16,12 +16,14 @@ body {
 }
 
 .nav {
-  width: 98.1vw;
+  width: 100vw;
   height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #011438;
+  position: fixed;
+  z-index: 0;
 }
 .nav-buttons {
   margin: 5px;
@@ -213,3 +215,35 @@ input#flap2 {
 }
 
 
+.home-trips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #011638;
+  color: #FFFFFF;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 30px;
+}
+
+
+
+p {
+  margin-top: 20px;
+  color: #d2d7df;
+}
+
+button {
+  background-color: #cd4b13;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #FFFFFF;
+  color: #cd4b13;
+}
