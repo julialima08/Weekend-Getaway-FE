@@ -35,7 +35,6 @@ body.active-popUp {
 
 .overlay {
   background: rgba(49,49,49,0.8);
-
 }
 
 .popUp-content {
@@ -74,7 +73,6 @@ body.active-popUp {
   cursor: pointer;
 }
 
-
 .input {
   margin-bottom: 15px;
   width: 300px;
@@ -88,7 +86,6 @@ body.active-popUp {
   border-radius: 25px;
   opacity: .8;
 }
-
 
 .submit {
   background-color: #cd4b13;
