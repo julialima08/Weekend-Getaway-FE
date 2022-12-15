@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import '../CSS/App.css'
 import '../CSS/popup2.css'
 import { useNavigate } from 'react-router-dom'
@@ -22,7 +22,6 @@ const AddFlightToTrip = (props) => {
       )
       console.log(response)
   }
-  const [tripId, setTripId] = useState(null)
   let navigate = useNavigate()
   
   const handleSubmit = async (trip) => {
@@ -33,7 +32,6 @@ const AddFlightToTrip = (props) => {
   const handleClick = () => {
     setFlight(props.flight)
     togglePopUp()
-    // console.log(props.flight)
   }
 
   if (popUp) {
