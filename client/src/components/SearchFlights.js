@@ -16,6 +16,7 @@ const submit = (e)=> {
           type="text"
           value={props.origin}
           onChange={event => props.setOrigin(event.target.value)}
+          placeholder="origin"
         />
       </label>
       <label>
@@ -24,6 +25,7 @@ const submit = (e)=> {
           type="text"
           value={props.destination}
           onChange={event => props.setDestination(event.target.value)}
+          placeholder="destination"
         />
       </label>
       <label>
@@ -32,6 +34,7 @@ const submit = (e)=> {
           type="text"
           value={props.date}
           onChange={event => props.setDate(event.target.value)}
+          placeholder="YYYY-MM-DD"
         />
       </label>
       <button type="submit">Search</button>
