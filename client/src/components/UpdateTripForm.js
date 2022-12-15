@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
 import { updateTrip } from '../services/Auth'
 
 
-const UpdateTripForm = ({setTripId, tripId, setTripUpdated, selectedTrip, setButtonClicked, buttonClicked, tripUpdated}) => {
+const UpdateTripForm = ({setTripUpdated, selectedTrip, setButtonClicked, buttonClicked, tripUpdated}) => {
   
   const initialState = {
     title: '',
@@ -12,11 +11,8 @@ const UpdateTripForm = ({setTripId, tripId, setTripUpdated, selectedTrip, setBut
   }
   const [formState, setFormState] = useState(initialState)
 
-//   let navigate = useNavigate()
-// let { trip_id } = useParams()
   const handleSubmit = async (event) => {
     event.preventDefault()
-    // setTripId(trip_id)
     await updateTrip(selectedTrip.id, formState)
     setButtonClicked(!buttonClicked)
     setTripUpdated(true)
