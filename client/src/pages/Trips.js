@@ -56,7 +56,7 @@ return (
           </div>
           <div >
             <div className="cork-div">
-              <img className="cork" src="https://static8.depositphotos.com/1570716/1049/i/950/depositphotos_10495668-stock-photo-cork-board-background.jpg"></img>
+              <img className="cork" src="https://img.freepik.com/premium-photo/background-brown-cork-board-texture-close-up_77190-2560.jpg?w=2000"></img>
             </div>
             {trips != null ? (
               <div className="trip-map">
