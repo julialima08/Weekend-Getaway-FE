@@ -1,4 +1,4 @@
-/* SearchEngine.css */
+
 body {
   margin: 0px;
 }
@@ -52,7 +52,6 @@ body {
 .searchResults {
   display: flex;
   flex-direction: column;
-  /* height: 100vh; */
 }
 
 .back {

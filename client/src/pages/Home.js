@@ -31,7 +31,7 @@ let navigate = useNavigate()
             <div class="window">
             <div class="clouds"></div>
             <div class="wing"></div>
-             <input id='flap' type='checkbox' />
+            <input id='flap' type='checkbox' />
             <label class='flap' for='flap'></label>
             </div>
             </div>
@@ -44,7 +44,7 @@ let navigate = useNavigate()
           <div class="windowSeat">
             <div class="window">
             <div class="clouds"></div>
-             <input id='flap2' type='checkbox' />
+            <input id='flap2' type='checkbox' />
             <label class='flap2' for='flap2'></label>
             </div>
             </div>

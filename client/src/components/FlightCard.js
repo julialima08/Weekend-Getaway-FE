@@ -1,6 +1,5 @@
 import AddFlightToTrip from "./AddFlightToTrip"
 import '../CSS/Trips.css'
-// import { FaPlaneArrival } from "react-icons/fa";
 
 const FlightCard = (props) => {
 
@@ -80,8 +79,8 @@ const FlightCard = (props) => {
         <span className="seat seatslip">DEPARTURE DATE<br></br><span>{props.departure2}</span></span>
         <span className="name nameslip">ARRIVAL TIME<br></br><span>{props.arrival2}</span></span>
         <span className='add'>
-         <AddFlightToTrip  trips={props.trips}  flight={flightInfo}/>
-         </span>
+        <AddFlightToTrip  trips={props.trips}  flight={flightInfo}/>
+        </span>
       </div>
     </div>
   </div>

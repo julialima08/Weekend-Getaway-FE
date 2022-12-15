@@ -94,7 +94,6 @@ function App() {
     await axios.request(options2).then(function (response) {
         setSearchResults(response.data.itineraries)
       })
-    // console.log(response.data);
     }
     const [tripId, setTripId] = useState(null)
   

@@ -81,16 +81,16 @@ body {
   width: 85vw;
   margin-top: 80px;
 }
- .description {
+.description {
   padding: 10px;
   width: 80%;
   text-align: center;
   margin-left: 60px;
   color: #011438;
   font-family: 'Cormorant Garamond', serif;
- }
+}
 
- .home-options {
+.home-options {
   display: flex;
   justify-content: center;
   margin-top: 70px;
@@ -113,7 +113,7 @@ p {
 font-family: 'Cormorant Garamond', serif;
 }
 
- .windowSeat {
+.windowSeat {
   position: relative;
 }
 
@@ -129,7 +129,7 @@ font-family: 'Cormorant Garamond', serif;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -webkit-transform: translate3d(0, 0, 0);
- -moz-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
 }
 
 .clouds {
